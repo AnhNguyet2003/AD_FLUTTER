@@ -1,0 +1,24 @@
+const mongoose = require('mongoose'); // Erase if already required
+
+// Declare the Schema of the Mongo model
+var voucherSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
+        unique: true,
+        uppercase: true,
+    },
+    discount: {
+        type: Number,
+        required: true,
+    },
+    expire: {
+        type: Date,
+        required: true,
+    },
+}, {
+    timestamps: true
+});
+
+//Export the model
+module.exports = mongoose.model('Voucher', voucherSchema);
